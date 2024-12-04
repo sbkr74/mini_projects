@@ -32,14 +32,17 @@ class Quiz:
     def run_quiz(self,questions):
         score = 0
         for question in questions:
-            print("==============================================================================================")
+            print("\n==============================================================================================")
             print(question["prompt"])
             print("---------------------------------------")
             for option in question["options"]:
                 print(option)
-            choice = input("Enter Your Choice: ")
-            if choice.upper() == question["answer"]:
+            choice = input("Enter Your Choice: (A,B,C or D):-> ").upper()
+            if choice == question["answer"]:
+                print("Hooray! Correct Answer...")
                 score+=1
+            else:
+                print("Looser!!! Wrong Answer. Correct answer: ",question["answer"])
         print("Final Score:",score)
 
 quiz = Quiz()
