@@ -9,16 +9,27 @@ class Quiz:
             "answer": "C"
         },
         {
-            "prompt":'''I am a three-digit number.
-            []My tens digit is five more than my ones digit.
-            []My hundreds digit is eight less than my tens digit.
-            What number am I?''',
+            "prompt":"2. I am a three-digit number.\n\tMy tens digit is five more than my ones digit.\n\tMy hundreds digit is eight less than my tens digit.\nWhat number am I",
             "options": ["A. 152","B. 194","C. 370","D. 283"],
             "answer":"A"
+        },
+        {
+            "prompt":"3. Which one of the following does not belong?",
+            "options":["A. Dog","B. Cat","C. Fish","D. Elephant"],
+            "answer":"C"
+        },
+        {
+            "prompt":"4. Which number should replace the question mark?\n\t3, 9, 27, ?, 243",
+            "options":["A. 54","B. 81","C. 108","D. 72"],
+            "answer":"B"
+        },
+        {
+            "prompt":"5. Which one of the following numbers is the odd one out?",
+            "options":["A. 7","B. 11","C. 15","D. 17"],
+            "answer":"C"
         }
     ]
-    @staticmethod
-    def run_quiz(questions):
+    def run_quiz(self,questions):
         score = 0
         for question in questions:
             print("==============================================================================================")
