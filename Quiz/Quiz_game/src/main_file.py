@@ -1,5 +1,5 @@
 import os
-
+from main import Quiz
 file_path = os.path.join("Quiz","Quiz_game","files","set1.txt")
 
 with open(file_path,"r") as file:
@@ -20,4 +20,16 @@ for line in content:
         val = val.strip()
         options_dict[opt]=val
         ques_dict['Options']=options_dict
-
+ques_list = [ques_dict]
+score = 0
+for quest in ques_list:
+    print(quest["Question"])
+    for opt,val in quest["Options"].items():
+        print(opt,val)
+    choice = input("Enter Your Choice: (A,B,C or D):-> ").upper()
+    if choice == quest["Answer"]:
+        print("Hooray! Correct Answer...")
+        score+=1
+    else:
+        print("Looser!!! Wrong Answer. Correct answer: ",quest["Answer"])
+    print("Final Score:",score)
