@@ -13,18 +13,11 @@ for line in content:
         key,value = line.split(":",1)
         key = key.strip()
         value = value.strip()
+        ques_dict[key]=value
+    elif "." in line:
+        opt,val = line.split(".",1)
+        opt = opt.strip()
+        val = val.strip()
+        options_dict[opt]=val
+        ques_dict['Options']=options_dict
 
-        if key.startswith(('A','B','C','D')):
-            options_dict[key]=value
-        else:
-            if options_dict:
-                ques_dict['Options']=options_dict
-                options_dict = {}
-            ques_dict[key]=value
-    elif line.strip():
-        if options_dict:
-            ques_dict['Options']=options_dict
-            options_dict = {}
-if options_dict:
-    ques_dict["Options"]=options_dict
-print(ques_dict)
