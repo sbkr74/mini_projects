@@ -44,6 +44,6 @@ class Quiz:
             else:
                 print("Looser!!! Wrong Answer. Correct answer: ",question["answer"])
         print("Final Score:",score)
-
-quiz = Quiz()
-quiz.run_quiz(Quiz.questions)
+if __name__ == "__main__":
+    quiz = Quiz()
+    quiz.run_quiz(Quiz.questions)
