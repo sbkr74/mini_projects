@@ -1,0 +1,7 @@
+Question1 : If today is Monday, what day will it be 50 days from today?
+A. Monday
+B. Tuesday
+C. Wednesday
+D. Thursday
+
+Answer: A. Monday
