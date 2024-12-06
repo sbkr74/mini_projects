@@ -5,3 +5,12 @@ C. Wednesday
 D. Thursday
 
 Answer: A. Monday
+
+Question: 2. If Tom is taller than John and John is taller than Peter, who is the shortest?
+A. Tom
+B. John
+C. Peter
+D. Cannot be determined
+
+Answer: C. Peter
+
