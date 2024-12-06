@@ -30,12 +30,12 @@ for line in content:
 
     elif is_question and not (line.startswith("A.") or line.startswith("Answer")):
         # Append to the current question if it's a continuation
-        current_question += " " + line.strip()
+        current_question += "\n" + line.strip()  # Keep the line breaks
 
     elif line.startswith("A.") or line.startswith("B.") or line.startswith("C.") or line.startswith("D."):
         # Finalize the question before processing options
         if is_question:
-            ques_dict["Question"] = current_question
+            ques_dict["Question"] = current_question  # Store the multi-line question
             is_question = False
 
         # Add options to the options dictionary
@@ -53,8 +53,9 @@ if ques_dict:
     questions_list.append(ques_dict)
 
 # Print the resulting list of questions
-print(questions_list)
-for quest in questions_list:
-    print(quest["Question"])
-    for opt,val in quest["Options"].items():
-        print(opt,val)
+for question in questions_list:
+    print(f"Question: {question['Question']}")
+    for option, value in question["Options"].items():
+        print(f"{option}. {value}")
+    print(f"Answer: {question['Answer']}")
+    print("\n" + "-"*50)  # Separate questions with a line
