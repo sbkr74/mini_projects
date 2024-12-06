@@ -14,3 +14,54 @@ D. Cannot be determined
 
 Answer: C. Peter
 
+Question:3. In a group of 6 people, A is taller than B but shorter than C. D is shorter than E but taller than F. E is taller than A. Who is the tallest person?
+A. A
+B. B
+C. C
+D. E
+
+Answer: D. E
+
+Question:4. What comes next in the series?
+1, 4, 9, 16, 25, __?
+A. 36
+B. 49
+C. 30
+D. 41
+
+Answer: A. 36
+
+Question:5. If in a certain code, "PAPER" is written as "OZODQ," how is "PEN" written in that code?
+A. ODM
+B. ODM
+C. OEL
+D. OEM
+
+Answer: A. ODM
+
+Question:6. Choose the odd one out.
+A. Circle
+B. Triangle
+C. Square
+D. Sphere
+
+Answer: D. Sphere
+
+Question: If A is the brother of B, B is the sister of C, and C is the father of D, how is A related to D?
+A. Father
+B. Uncle
+C. Brother
+D. Nephew
+
+Answer: B. Uncle
+
+Question: Find the missing number in the sequence:
+8, 27, 64, 125, __?
+A. 150
+B. 216
+C. 175
+D. 200
+
+Answer: B. 216
+
+
