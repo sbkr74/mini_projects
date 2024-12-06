@@ -1,5 +1,4 @@
 import os
-from main import Quiz
 file_path = os.path.join("Quiz","Quiz_game","files","set1.txt")
 
 with open(file_path,"r") as file:
