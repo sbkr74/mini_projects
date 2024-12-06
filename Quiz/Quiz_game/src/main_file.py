@@ -27,7 +27,7 @@ for quest in ques_list:
     for opt,val in quest["Options"].items():
         print(opt,val)
     choice = input("Enter Your Choice: (A,B,C or D):-> ").upper()
-    if choice == quest["Answer"]:
+    if choice == quest["Answer"][0]:
         print("Hooray! Correct Answer...")
         score+=1
     else:
