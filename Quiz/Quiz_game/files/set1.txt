@@ -47,7 +47,7 @@ D. Sphere
 
 Answer: D. Sphere
 
-Question: If A is the brother of B, B is the sister of C, and C is the father of D, how is A related to D?
+Question:7. If A is the brother of B, B is the sister of C, and C is the father of D, how is A related to D?
 A. Father
 B. Uncle
 C. Brother
@@ -55,7 +55,7 @@ D. Nephew
 
 Answer: B. Uncle
 
-Question: Find the missing number in the sequence:
+Question:8. Find the missing number in the sequence:
 8, 27, 64, 125, __?
 A. 150
 B. 216
@@ -64,4 +64,19 @@ D. 200
 
 Answer: B. 216
 
+Question:9. In a family of six, P is the mother of Q and R, and S is the father of Q. R is married to T. How is T related to P?
+A. Daughter-in-law
+B. Son-in-law
+C. Niece
+D. Sister
 
+Answer: A. Daughter-in-law
+
+
+Question:10. A is twice as old as B. B is three years older than C. If C is 5, how old is A?
+A. 13
+B. 16
+C. 20
+D. 18
+
+Answer: B. 16
