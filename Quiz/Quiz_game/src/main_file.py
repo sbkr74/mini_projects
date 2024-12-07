@@ -29,14 +29,15 @@ for line in content:
         val = val.strip()
         options_dict[opt]=val
         ques_dict['Options']=options_dict
-    
-    
+       
     
 if ques_dict:
     ques_list.append(ques_dict)
 
 score = 0
+total = 0
 for quest in ques_list:
+    total+=1
     print(quest["Question"])
     for opt,val in quest["Options"].items():
         print(opt,val)
@@ -46,4 +47,4 @@ for quest in ques_list:
         score+=1
     else:
         print("Looser!!! Wrong Answer. Correct answer: ",quest["Answer"],"\n")
-    print("Final Score:",score)
+print("Final Score:",score,"/",total)
