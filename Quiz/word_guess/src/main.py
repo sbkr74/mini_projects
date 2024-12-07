@@ -1,7 +1,7 @@
 import random
 
 words = ['python','scala','swift','java','javascript','ruby','rust']
-attempts = 10
+attempts = 3
 
 chosen_word = random.choice(words)
 wordplay = ["_" for _ in chosen_word]
@@ -19,7 +19,7 @@ while attempts>0 and "_" in wordplay:
 
 if '_' not in wordplay:
     print("You guessed the word!")
-    print(" ".join(wordplay))
+    print("".join(wordplay))
     print("You Survived!")
 
 else:
