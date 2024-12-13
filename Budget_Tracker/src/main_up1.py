@@ -16,18 +16,17 @@ def main():
         try:
             ch = int(input("Choose the options (1/2/3): "))
         except Exception as e:
-            # print(e)                              # Debugging
+            # print(e)                                                                 # Debugging
             print("Error: Only Accepts Integer Value.")
 
         if ch == 1:
-            # add_expense = "Expenses"              # replace it with function
-            add_expense = int(input("Enter Amount: "))
+            add_expense = float(input("Enter Amount: "))                               # replace it with function
         elif ch == 2:
             if add_expense is None:
                 print(f"Show budget and all balance!: {budget}")
                 print("expenses are not added")
             else:
-                view_budget = f"Show Budget {add_expense} and remaining balances: {budget-add_expense}"   # replace it with function
+                view_budget = f"Show Expenses: {add_expense} and remaining balances: {budget-add_expense}"   # replace it with function
                 print(view_budget)
         elif ch == 3:
             print("Exiting from App...")
