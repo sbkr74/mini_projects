@@ -1,18 +1,21 @@
 def add_expenses():
-    item_dict = {}
+    item_Dict = {}
     item = input("Enter your Product:")
     price = None
+    
     try:
         price = float(input("Enter Price of Product:"))
     except:
         print("Error: Price input should be decimal")
-    item_dict = {item:price}
-    return item_dict
+
+    item_Dict={item:price}
+    return item_Dict
 
 def main():
     print("Welcome to Budget tracker App")
     budget = None
-    expense = None
+    expense = []
+    
     try:
         budget = float(input("Enter your proposed budget: "))
     except:
@@ -31,17 +34,20 @@ def main():
             print("Error: Only Accepts Integer Value.")
 
         if ch == 1:
-            # expense = float(input("Enter Amount: "))                               # replace it with function
-            expense = add_expenses()
+            expense.append(add_expenses())
         elif ch == 2:
-            if expense is None:
+            if len(expense)==0:
                 print(f"Show budget and all balance!: {budget}")
                 print("expenses are not added")
             else:
-                # view_budget = f"Show Expenses: {expense} and remaining balances: {budget-expense}"   # replace it with function
-                # print(view_budget)
-                for item,val in expense.items():
-                    print(item,val)
+                print("Items Price")
+                print("-"*15)
+                cal = 0
+                for product in expense:
+                    for item,val in product.items():
+                        print(item,val)
+                        cal += val 
+                print(f"\nTotal expenditure: {cal} and remaining Balance: {budget-cal}")
         elif ch == 3:
             print("Exiting from App...")
             break
