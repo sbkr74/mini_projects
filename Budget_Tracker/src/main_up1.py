@@ -1,15 +1,16 @@
 def add_expenses():
-    item_Dict = {}
+    item_dict = {}
     item = input("Enter your Product:")
     price = None
-    
+
     try:
         price = float(input("Enter Price of Product:"))
-    except:
+    except Exception as e:
+        # print(e)                                                                       # Debugging
         print("Error: Price input should be decimal")
 
-    item_Dict={item:price}
-    return item_Dict
+    item_dict={item:price}
+    return item_dict
 
 def main():
     print("Welcome to Budget tracker App")
@@ -18,7 +19,8 @@ def main():
     
     try:
         budget = float(input("Enter your proposed budget: "))
-    except:
+    except Exception as e:
+        # print(e)                                                                       # Debugging
         print("Please Enter Amount in decimal format.")
     while True:
         print("\nWhat do you like do?")
