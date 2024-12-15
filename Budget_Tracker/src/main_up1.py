@@ -12,6 +12,14 @@ def add_expenses():
     item_dict={item:price}
     return item_dict
 
+def view_budget(expense:list): 
+    total = 0
+    for products in expense:
+        for product,val in products.items():
+            print(product,val)
+            total+=val
+    return total
+    
 def main():
     print("Welcome to Budget tracker App")
     budget = None
@@ -44,12 +52,9 @@ def main():
             else:
                 print("Items Price")
                 print("-"*15)
-                cal = 0
-                for product in expense:
-                    for item,val in product.items():
-                        print(item,val)
-                        cal += val 
-                print(f"\nTotal expenditure: {cal} and remaining Balance: {budget-cal}")
+                expend = view_budget(expense)
+                print(f"\nTotal expenditure: {expend} and remaining Balance: {budget-expend}")
+                
         elif ch == 3:
             print("Exiting from App...")
             break
