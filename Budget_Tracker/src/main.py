@@ -15,8 +15,8 @@ def show_budget_details(expenses,budget):
     print("Total Budget: ",budget)
     print("Expenses:")
     for expense in expenses:
-        print(f"{expense['description']}\t{expense['amount']}")
-    print(f"\nTotal Expenses: {round(expense_calculation(expenses),2)}\tRemaining Balance: {round(get_balance(expenses,budget),2)}")
+        print(f"- {expense['description']}\t{expense['amount']}")
+    print(f"Total Spent: {round(expense_calculation(expenses),2)}\nRemaining Balance: {round(get_balance(expenses,budget),2)}")
     
     
 def main():
@@ -24,8 +24,7 @@ def main():
     initial_budget = float(input("Enter Your Budget for Expense Tracking: "))
     budget = initial_budget
     expenses = []
-    cal = 0 
-    while initial_budget>0:
+    while True:
         print("\nWhat you like do?")
         print("1. Add expenses")
         print("2. Show budget details")
