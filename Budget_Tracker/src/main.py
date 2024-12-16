@@ -7,6 +7,13 @@ def expense_calculation(expenses):
     for item in expenses:
         total += item['amount']
     return total
+
+def show_budget_details(expenses,budget):
+    print("Total Budget: ",budget)
+    print("Expenses:")
+    for expense in expenses:
+        print(f"{expense['description']}\t{expense['amount']}")
+    print(f"\nTotal Expenses: {expense_calculation(expenses)}\tRemaining Balance: {budget-expense_calculation(expenses)}")
     
     
 def main():
@@ -29,11 +36,12 @@ def main():
             cal = expense_calculation(expenses)
 
         elif choice == "2":
-            print("-"*25)
-            print("Expenditure Details of Budget.")
-            for expense in expenses:                  
-                print(expense['description'],expense['amount'])
-            print(f"\nTotal Expenditure: {cal} \t Remaining Balance: {budget-cal}")
+            # print("-"*25)
+            # print("Expenditure Details of Budget.")
+            # for expense in expenses:                  
+            #     print(expense['description'],expense['amount'])
+            # print(f"\nTotal Expenditure: {cal} \t Remaining Balance: {budget-cal}")
+            show_budget_details(expenses,budget)
         
         elif choice == '3':
             print("Goodbye! Signing Off Budget Tracker...\n")
