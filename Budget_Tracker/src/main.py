@@ -25,17 +25,24 @@ def save_budget_details(file_path,initial_budget,expenses):
         'expenses':expenses
     }
     with open(file_path,'w') as file:
-        json.dump(data,file,indent=4)    
+        json.dump(data,file,indent=4) 
+
+def load_budget(file_path):
+    try:
+        with open(file_path,'r') as file:
+            data = json.load(file)
+            return data['initial_budget'], data['expenses']
+    except (FileNotFoundError,json.JSONDecodeError):
+        return 0 , []
+
     
 def main():
     print("Welcome to Budget Tracker")
     file_path = "Budget_Tracker/file/budget_data.json"
-    # initial_budget,expenses = load_budget(file_path)
-    initial_budget = 0
+    initial_budget,expenses = load_budget(file_path)
     if initial_budget == 0:
         initial_budget = float(input("Enter Your Budget for Expense Tracking: "))
     budget = initial_budget
-    expenses = []
     while True:
         print("\nWhat you like do?")
         print("1. Add expenses")
