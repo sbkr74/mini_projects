@@ -1,3 +1,4 @@
+import json
 def add_expense(expenses,description,amount):
     expenses.append({"description":description,"amount":amount})
     print(f"Added expense:{description}, Amount:{amount}")
@@ -17,11 +18,22 @@ def show_budget_details(expenses,budget):
     for expense in expenses:
         print(f"- {expense['description']}\t{expense['amount']}")
     print(f"Total Spent: {round(expense_calculation(expenses),2)}\nRemaining Balance: {round(get_balance(expenses,budget),2)}")
-    
+
+def save_budget_details(file_path,initial_budget,expenses):
+    data = {
+        'initial_budget':initial_budget,
+        'expenses':expenses
+    }
+    with open(file_path,'w') as file:
+        json.dump(data,file,indent=4)    
     
 def main():
     print("Welcome to Budget Tracker")
-    initial_budget = float(input("Enter Your Budget for Expense Tracking: "))
+    file_path = "Budget_Tracker/file/budget_data.json"
+    # initial_budget,expenses = load_budget(file_path)
+    initial_budget = 0
+    if initial_budget == 0:
+        initial_budget = float(input("Enter Your Budget for Expense Tracking: "))
     budget = initial_budget
     expenses = []
     while True:
@@ -40,6 +52,7 @@ def main():
             show_budget_details(expenses,budget)
         
         elif choice == '3':
+            save_budget_details(file_path,initial_budget,expenses)
             print("Goodbye! Signing Off Budget Tracker...\n")
             return False
     
