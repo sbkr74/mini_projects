@@ -8,12 +8,15 @@ def expense_calculation(expenses):
         total += item['amount']
     return total
 
+def get_balance(expenses,budget):
+    return budget - expense_calculation(expenses) 
+
 def show_budget_details(expenses,budget):
     print("Total Budget: ",budget)
     print("Expenses:")
     for expense in expenses:
         print(f"{expense['description']}\t{expense['amount']}")
-    print(f"\nTotal Expenses: {expense_calculation(expenses)}\tRemaining Balance: {budget-expense_calculation(expenses)}")
+    print(f"\nTotal Expenses: {round(expense_calculation(expenses),2)}\tRemaining Balance: {round(get_balance(expenses,budget),2)}")
     
     
 def main():
@@ -33,14 +36,8 @@ def main():
             description = input("Enter name of product: ")
             amount = float(input("Enter cost of the product: "))
             add_expense(expenses,description,amount)
-            cal = expense_calculation(expenses)
 
         elif choice == "2":
-            # print("-"*25)
-            # print("Expenditure Details of Budget.")
-            # for expense in expenses:                  
-            #     print(expense['description'],expense['amount'])
-            # print(f"\nTotal Expenditure: {cal} \t Remaining Balance: {budget-cal}")
             show_budget_details(expenses,budget)
         
         elif choice == '3':
