@@ -1,0 +1,13 @@
+{
+    "initial_budget": 111.0,
+    "expenses": [
+        {
+            "description": "aloo",
+            "amount": 30.33
+        },
+        {
+            "description": "payaz",
+            "amount": 50.0
+        }
+    ]
+}
