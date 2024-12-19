@@ -1,6 +1,5 @@
 import os
 import shutil
-from pathlib import Path
 
 def create_subfolder(folder_path,sub_folder):
     sub_folder_path = os.path.join(folder_path,sub_folder)
@@ -21,7 +20,7 @@ def arrange_folder(folder_path):
                     print(sub_folder_path)
                 if os.path.exists(new_loc):
                     shutil.move(file_path,sub_folder_path)
-                    print('moved')
+                    print(f'{filename} is moved to {sub_folder}')
 
 if __name__ == '__main__':
     folder_path = r"D:\downloads"
