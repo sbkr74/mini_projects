@@ -1,0 +1,12 @@
+{"adjective": ["daring", "sunny", "foggy", "thrilling", "unforgettable"],
+"terrain": ["forest", "canyon", "mountain"],
+"weather condition": ["drizzle", "gusty winds", "clear skies", "rainy"],
+"adventurous activity": ["trekking", "rafting", "ziplining", "skydiving","paragliding", "bungee jumping", "mountain climbing"],
+"gear": ["rope", "helmet", "raft","Ice Axe"],
+"noun": ["waterfall", "cliff","valley"],
+"plural noun": ["backpack","gears","suits","attachemnts"],
+"name of person 1": ["Shubham","Sumit","Aman"],
+"name of person 2": ["Biruly","Himanshu","Prince"],
+"name of person 3": ["Bittu","Suman","chunnu","krishna"],
+"emotion": ["excited", "nervous", "accomplished","excited","exhaustion"]
+}
