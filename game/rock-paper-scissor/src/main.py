@@ -46,7 +46,7 @@ while True:
         user_wins += 1
 
 if computer_wins>user_wins:
-    print(f"You Lost against Computer by {computer_wins-user_wins} score.")
+    print(f"You Lost against Computer by score of {computer_wins-user_wins}.")
 elif computer_wins==user_wins:
     print(f"Game tie at score of {user_wins}.")
 else:
