@@ -27,7 +27,7 @@ def countdown_timer(seconds, stop_event):
     if not stop_event.is_set():
         print("\nTime's up!")
 
-attempt = 1
+attempt = 0
 input("Press Enter to start!")
 print("-------------------------------")
 start_time = time.time()
