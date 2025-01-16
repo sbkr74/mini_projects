@@ -18,21 +18,20 @@ def countdown_timer(seconds):
         mins, secs = divmod(seconds, 60)
         timer = f'{mins:02d}:{secs:02d}'
         print(timer, end="\r")  # Print on the same line
-        time.sleep(1)  # Pause for 1 second
+        time.sleep(1)           # Pause for 1 second
         seconds -= 1
     
     
 
-attempt = 1
+attempt = 0
 input("Press Enter to start!")
 print("-------------------------------")
 start_time = time.time()
 for i in range(TOTAL_QUEST):
     expr,ans = generate_problem()
+    sec = countdown_timer(3)
     while True:
         usr_in = input("Question#"+str(i+1)+": "+expr+"= ")
-        sec = countdown_timer(10)
-        
         if usr_in==str(ans):
             break
         attempt+=1
