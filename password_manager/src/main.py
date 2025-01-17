@@ -21,14 +21,16 @@ def get_access():
 
 def view():
     with open(filepath,"r") as f:
-        data = f.read()
-    
-    print(data)
+        for line in f.readlines():
+            data = line.rstrip()
+            user,pwd = data.split("|")
+            print("User:",user," Password:",pwd)
+
 
 def add():
     pwd = input("Enter Your password: ")
     with open (filepath,"a") as f:
-        f.write(name+"|"+pwd+"\n")
+        f.write(name + "|" + pwd + "\n")
 
 if __name__=="__main__":
     name = input("Enter your name: ")
