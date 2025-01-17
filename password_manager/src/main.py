@@ -1,4 +1,6 @@
+name = input("Enter your name: ")
 access = "Denied"
+filepath = "password_manager/files/password.txt"
 while True:
     mstr_pwd = input("Enter Master Password [0000] to Access Password Manager: ")
 
@@ -16,4 +18,29 @@ while True:
             print("ERROR: ",e)
             print("Accept only digits!!!\n")        
 
-print(access)
+print(f"{name} has been autorized.")
+
+def view():
+    with open(filepath,"r") as f:
+        data = f.read()
+    
+    print(data)
+
+def add():
+    pwd = input("Enter Your password: ")
+    with open (filepath,"a") as f:
+        f.write(name+"|"+pwd+"\n")
+
+if access == "Accepted":
+    while True:
+        choice = input("\nWould you want to view or add password. Type [view/add] or Press q or Q to Quit: ").lower()
+        if choice == 'q':
+            break
+        elif choice == "view":
+            view()
+        elif choice == "add":
+            add()
+        else:
+            print("Try again from given option [view/add/q/Q].")
+            
+        
