@@ -1,3 +1,4 @@
+from cryptography.fernet import Fernet
 def get_access():
     access = "Denied"
     while True:
@@ -18,6 +19,10 @@ def get_access():
                 print("Accept only digits!!!\n")        
     return access
 
+def write_key():
+    key = Fernet.generate_key()
+    with open("password_manager/files/key.key","wb") as key_file:
+        key_file.write(key)
 
 def view():
     with open(filepath,"r") as f:
@@ -37,7 +42,7 @@ if __name__=="__main__":
     filepath = "password_manager/files/password.txt"
     access = get_access()
     if access == "Accepted":
-        print(f"{name} has been autorized.")
+        print(f"{name.upper()} has been autorized.")
         while True:
             choice = input("\nWould you want to view or add password. Type [view/add] or Press q or Q to Quit: ").lower()
             if choice == 'q':
