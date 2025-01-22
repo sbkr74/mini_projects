@@ -1,6 +1,17 @@
 from cryptography.fernet import Fernet
 import os
 
+def write_key():
+    key = Fernet.generate_key()
+    with open("password_manager/files/key.key","wb") as key_file:
+        key_file.write(key)
+
+def load_key():
+    file = open("password_manager/files/key.key","rb")
+    key = file.read()
+    file.close()
+    return key
+
 def check_key():
     filepath = "password_manager/files/key.key"
 
@@ -16,7 +27,7 @@ def get_access():
     access = "Denied"
     while True:
         mstr_pwd = input("Enter Master Password [0000] to Access Password Manager: ")
-        key = load_key() + mstr_pwd.encode()
+        key = load_key() + mstr_pwd.encode() + name.encode()
         fer = Fernet(key)
 
         if mstr_pwd.isdigit():
@@ -33,42 +44,33 @@ def get_access():
             except ValueError as e:
                 print("ERROR: ",e)
                 print("Accept only digits!!!\n")        
-    return access
+    return access,fer
 
-def write_key():
-    key = Fernet.generate_key()
-    with open("password_manager/files/key.key","wb") as key_file:
-        key_file.write(key)
 
-def load_key():
-    file = open("password_manager/files/key.key","wb")
-    key = file.read()
-    file.close()
-    return key
 
 def view():
     with open(filepath,"r") as f:
         for line in f.readlines():
             data = line.rstrip()
             account,pwd = data.split("|")
-            print("Account:",account," Password:",pwd)
+            print("Account:",account," Password:",fer.decrypt(pwd.encode()).decode())
 
 
 def add():
     account_name = input("Account Name: ")
     pwd = input("Enter Your password: ")
     with open (filepath,"a") as f:
-        f.write(account_name + "|" + pwd + "\n")
+        f.write(account_name + "|" + fer.encrypt(pwd.encode()).decode() + "\n")
 
 if __name__=="__main__":
     name = input("Enter your name: ")
     filepath = "password_manager/files/password.txt"
-    access = get_access()
+    check_key()
+    access,fer = get_access()
     if access == "Accepted":
         print(f"{name.upper()} has been autorized.")
         while True:
             choice = input("\nWould you want to view or add password. Type [view/add] or Press q or Q to Quit: ").lower()
-            check_key()
             if choice == 'q':
                 break
             elif choice == "view":
