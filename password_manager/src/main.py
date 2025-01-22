@@ -24,18 +24,25 @@ def write_key():
     with open("password_manager/files/key.key","wb") as key_file:
         key_file.write(key)
 
+def load_key():
+    file = open("password_manager/files/key.key","wb")
+    key = file.read()
+    file.close()
+    return key
+
 def view():
     with open(filepath,"r") as f:
         for line in f.readlines():
             data = line.rstrip()
-            user,pwd = data.split("|")
-            print("User:",user," Password:",pwd)
+            account,pwd = data.split("|")
+            print("Account:",account," Password:",pwd)
 
 
 def add():
+    account_name = input("Account Name: ")
     pwd = input("Enter Your password: ")
     with open (filepath,"a") as f:
-        f.write(name + "|" + pwd + "\n")
+        f.write(account_name + "|" + pwd + "\n")
 
 if __name__=="__main__":
     name = input("Enter your name: ")
