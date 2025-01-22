@@ -1,14 +1,30 @@
 from cryptography.fernet import Fernet
+import os
+
+def check_key():
+    filepath = "password_manager/files/key.key"
+
+    if os.path.exists(filepath):
+        if os.path.getsize(filepath) == 0:
+            write_key()
+        else:
+            print("Key has been already generated.")
+    else:
+        write_key()
+
 def get_access():
     access = "Denied"
     while True:
         mstr_pwd = input("Enter Master Password [0000] to Access Password Manager: ")
+        key = load_key() + mstr_pwd.encode()
+        fer = Fernet(key)
 
         if mstr_pwd.isdigit():
             if int(mstr_pwd) == 0000:
                 access = "Accepted"
                 break
             else:
+                print("Access: ",access)
                 break
         else:
             try:
@@ -52,6 +68,7 @@ if __name__=="__main__":
         print(f"{name.upper()} has been autorized.")
         while True:
             choice = input("\nWould you want to view or add password. Type [view/add] or Press q or Q to Quit: ").lower()
+            check_key()
             if choice == 'q':
                 break
             elif choice == "view":
