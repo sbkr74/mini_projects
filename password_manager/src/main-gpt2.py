@@ -83,40 +83,56 @@ def add_password(username, fer):
     with open(user_password_file, "a") as file:
         file.write(f"{account_name}|{encrypted_pwd}\n")
     print("Password saved successfully.")
-
 def main():
     print("Welcome to the Password Manager!")
     while True:
-        action = input("Do you want to [login/register/quit]? ").lower()
+        action = get_user_action()
         if action == "quit":
             break
         elif action in ["login", "register"]:
-            username = input("Enter your username: ")
-            password = input("Enter your master password: ")
-
-            if action == "register":
-                if register_user(username, password):
-                    continue
-
-            elif action == "login":
-                if check_user(username, password):
-                    print(f"Welcome back, {username}!")
-                    key = load_key(username)
-                    fer = Fernet(key)
-                    while True:
-                        choice = input("\nWould you like to [view/add] passwords or [logout]? ").lower()
-                        if choice == "logout":
-                            break
-                        elif choice == "view":
-                            view_passwords(username, fer)
-                        elif choice == "add":
-                            add_password(username, fer)
-                        else:
-                            print("Invalid choice.")
-                else:
-                    print("Invalid username or password.")
+            handle_user_action(action)
         else:
             print("Invalid action. Please choose [login/register/quit].")
+
+def get_user_action():
+    """Prompt the user to choose an action."""
+    return input("Do you want to [login/register/quit]? ").lower()
+
+def handle_user_action(action):
+    """Handle the login or registration action."""
+    username = input("Enter your username: ")
+    password = input("Enter your master password: ")
+
+    if action == "register":
+        if register_user(username, password):
+            return
+
+    if action == "login":
+        if check_user(username, password):
+            handle_logged_in_user(username)
+        else:
+            print("Invalid username or password.")
+
+def handle_logged_in_user(username):
+    """Handle actions for a logged-in user."""
+    print(f"Welcome back, {username}!")
+    key = load_key(username)
+    fer = Fernet(key)
+
+    while True:
+        choice = get_logged_in_user_action()
+        if choice == "logout":
+            break
+        elif choice == "view":
+            view_passwords(username, fer)
+        elif choice == "add":
+            add_password(username, fer)
+        else:
+            print("Invalid choice.")
+
+def get_logged_in_user_action():
+    """Prompt the logged-in user to choose an action."""
+    return input("\nWould you like to [view/add] passwords or [logout]? ").lower()
 
 if __name__ == "__main__":
     main()
